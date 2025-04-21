@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Sets the character encoding to support special characters -->
+        <meta charset="UTF-8" />
+        <!-- Makes the website responsive for mobile devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Title of the webpage shown in the browser tab -->
+        <title>Krisha Bhalala | Computer Science Innovator</title>
+        <!-- Imports Poppins font from Google Fonts for styling -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+        />
+        <!-- Imports Font Awesome icons for social media and email buttons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <!-- Imports Particles.js library for background animation -->
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+        <style>
+            /* Defines reusable color variables for consistent styling */
+            :root {
+                --primary: #4682b4; /* Steel blue for main accents */
+                --secondary: #ff9999; /* Soft pink for highlights */
+                --accent: #e6e6fa; /* Lavender for subtle touches */
+                --dark: #1c2526; /* Deep navy for background */
+                --light: #f5f6f5; /* Cream for text */
+                --card-bg: #2f3e46; /* Dark slate for cards */
+            }
+
+            /* Resets default margins and ensures elements fit within their containers */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Styles the main body of the page */
+            body {
+                font-family: "Poppins", sans-serif; /* Uses Poppins font */
+                background: var(--dark); /* Sets dark background */
+                color: var(--light); /* Sets light text color */
+                overflow-x: hidden; /* Prevents horizontal scrolling */
+                position: relative; /* Allows positioning of child elements */
+            }
+
+            /* Styles the particle background animation */
+            #particles-js {
+                position: fixed; /* Stays in place while scrolling */
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1; /* Places it behind other content */
+            }
+
+            /* Styles the navigation bar at the top */
+            .navbar {
+                position: sticky; /* Sticks to top when scrolling */
+                top: 0;
+                background: rgba(
+                    28,
+                    37,
+                    38,
+                    0.9
+                ); /* Semi-transparent dark background */
+                backdrop-filter: blur(10px); /* Adds blur effect */
+                padding: 1rem 2rem; /* Adds spacing inside */
+                z-index: 1000; /* Ensures it stays above other elements */
+                display: flex; /* Aligns links horizontally */
+                justify-content: center; /* Centers links */
+                gap: 2rem; /* Adds space between links */
+            }
+
+            /* Styles the navigation links */
+            .navbar a {
+                color: var(--light); /* Light text color */
+                text-decoration: none; /* Removes underline */
+                font-weight: 600; /* Makes text bold */
+                font-size: 1.1rem; /* Sets font size */
+                transition:
+                    color 0.3s,
+                    transform 0.3s; /* Smooth hover effects */
+            }
+
+            /* Hover effect for navigation links */
+            .navbar a:hover {
+                color: var(--primary); /* Changes to steel blue */
+                transform: scale(1.1); /* Slightly enlarges link */
+            }
+
+            /* Styles the header section with name and title */
+            .header {
+                text-align: center; /* Centers content */
+                padding: 5rem 2rem; /* Adds spacing */
+                background: linear-gradient(
+                    45deg,
+                    var(--dark),
+                    var(--card-bg)
+                ); /* Gradient background */
+            }
+
+            /* Styles the name in the header */
+            .name {
+                font-size: 4rem; /* Large font size */
+                font-weight: 800; /* Very bold */
+                background: linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                ); /* Gradient text */
+                -webkit-background-clip: text; /* Applies gradient to text */
+                background-clip: text;
+                color: transparent; /* Makes text transparent to show gradient */
+                animation: fadeIn 1s ease-out; /* Fades in on load */
+            }
+
+            /* Styles the title below the name */
+            .title {
+                font-size: 1.5rem; /* Medium font size */
+                color: var(--accent); /* Lavender color */
+                margin-top: 1rem; /* Adds space above */
+                animation: slideUp 1s ease-out; /* Slides up on load */
+            }
+
+            /* Styles the about section with bio and skills */
+            .about {
+                max-width: 900px; /* Limits width for readability */
+                margin: 0 auto; /* Centers section */
+                padding: 4rem 2rem; /* Adds spacing */
+                text-align: center; /* Centers text */
+                background: rgba(
+                    47,
+                    62,
+                    70,
+                    0.2
+                ); /* Semi-transparent background */
+                border-radius: 20px; /* Rounded corners */
+                margin-bottom: 4rem; /* Space below */
+            }
+
+            /* Styles the biography text */
+            .bio {
+                font-size: 1.2rem; /* Readable font size */
+                line-height: 1.8; /* Adds space between lines */
+                color: var(--light); /* Light text color */
+                margin-bottom: 2rem; /* Space below */
+                animation: fadeIn 1.5s ease-out; /* Fades in on load */
+            }
+
+            /* Styles the skills list */
+            .skills {
+                display: flex; /* Aligns skills horizontally */
+                flex-wrap: wrap; /* Wraps to next line if needed */
+                justify-content: center; /* Centers skills */
+                gap: 1rem; /* Space between skills */
+            }
+
+            /* Styles each skill tag */
+            .skill {
+                background: var(--card-bg); /* Dark slate background */
+                padding: 0.8rem 1.5rem; /* Inner spacing */
+                border-radius: 50px; /* Rounded shape */
+                font-weight: 600; /* Bold text */
+                transition:
+                    transform 0.3s,
+                    background 0.3s; /* Smooth hover effects */
+                cursor: pointer; /* Shows clickable hand */
+            }
+
+            /* Hover effect for skill tags */
+            .skill:hover {
+                background: var(--primary); /* Steel blue background */
+                transform: translateY(-5px); /* Moves up slightly */
+                box-shadow: 0 5px 15px rgba(70, 130, 180, 0.4); /* Adds shadow */
+            }
+
+            /* Styles generic sections (hackathon, technical, etc.) */
+            .section {
+                max-width: 1200px; /* Limits width */
+                margin: 0 auto; /* Centers section */
+                padding: 4rem 2rem; /* Adds spacing */
+            }
+
+            /* Styles section titles */
+            .section-title {
+                font-size: 2.5rem; /* Large font size */
+                font-weight: 800; /* Very bold */
+                text-align: center; /* Centers text */
+                margin-bottom: 3rem; /* Space below */
+                color: var(--light); /* Light text color */
+                position: relative; /* Allows positioning of underline */
+                animation: slideUp 1s ease-out; /* Slides up on load */
+            }
+
+            /* Adds decorative underline to section titles */
+            .section-title::after {
+                content: ""; /* Empty content */
+                position: absolute; /* Positions below title */
+                bottom: -10px; /* Space below title */
+                left: 50%; /* Centers horizontally */
+                transform: translateX(-50%); /* Adjusts centering */
+                width: 120px; /* Underline width */
+                height: 4px; /* Underline thickness */
+                background: linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                ); /* Gradient underline */
+            }
+
+            /* Styles grids for projects and experiences */
+            .project-grid,
+            .experience-grid {
+                display: grid; /* Creates grid layout */
+                grid-template-columns: repeat(
+                    auto-fit,
+                    minmax(300px, 1fr)
+                ); /* Responsive columns */
+                gap: 2rem; /* Space between cards */
+            }
+
+            /* Styles project and experience cards */
+            .project-card,
+            .experience-card {
+                background: var(--card-bg); /* Dark slate background */
+                border-radius: 15px; /* Rounded corners */
+                overflow: hidden; /* Hides overflow content */
+                transition:
+                    transform 0.5s,
+                    box-shadow 0.5s; /* Smooth hover effects */
+                position: relative; /* Allows positioning */
+                perspective: 1000px; /* Adds 3D effect on hover */
+            }
+
+            /* Hover effect for cards */
+            .project-card:hover,
+            .experience-card:hover {
+                transform: translateY(-10px) rotateY(10deg); /* Moves up and rotates */
+                box-shadow: 0 15px 30px rgba(70, 130, 180, 0.3); /* Adds shadow */
+            }
+
+            /* Styles placeholder images for projects */
+            .project-image {
+                height: 200px; /* Fixed height */
+                position: relative; /* Allows overlay */
+                overflow: hidden; /* Hides overflow */
+            }
+
+            /* Adds gradient overlay to project images */
+            .project-image::after {
+                content: ""; /* Empty content */
+                position: absolute; /* Covers image */
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(28, 37, 38, 0.5)
+                ); /* Fades to dark */
+            }
+
+            /* Unique gradient backgrounds for each project image */
+            .project-card:nth-child(1) .project-image {
+                background: linear-gradient(45deg, #4682b4, #add8e6);
+            }
+            .project-card:nth-child(2) .project-image {
+                background: linear-gradient(45deg, #6a5acd, #b0c4de);
+            }
+            .project-card:nth-child(3) .project-image {
+                background: linear-gradient(45deg, #ff9999, #ffdab9);
+            }
+            .project-card:nth-child(4) .project-image {
+                background: linear-gradient(45deg, #4682b4, #ff9999);
+            }
+            .project-card:nth-child(5) .project-image {
+                background: linear-gradient(45deg, #6a5acd, #add8e6);
+            }
+            .project-card:nth-child(6) .project-image {
+                background: linear-gradient(45deg, #ff9999, #e6e6fa);
+            }
+            .project-card:nth-child(7) .project-image {
+                background: linear-gradient(45deg, #4682b4, #e6e6fa);
+            }
+
+            /* Styles content inside project and experience cards */
+            .project-content,
+            .experience-card {
+                padding: 1.5rem; /* Inner spacing */
+            }
+
+            /* Styles card titles */
+            .project-card h3,
+            .experience-card h3 {
+                font-size: 1.5rem; /* Medium font size */
+                margin: 0 0 0.5rem; /* Space below */
+                color: var(--light); /* Light text color */
+            }
+
+            /* Styles card descriptions */
+            .project-card p,
+            .experience-card p {
+                color: rgba(255, 255, 255, 0.8); /* Slightly faded text */
+                margin-bottom: 1.5rem; /* Space below */
+            }
+
+            /* Styles technology tags in projects */
+            .tech-tags {
+                display: flex; /* Aligns tags horizontally */
+                flex-wrap: wrap; /* Wraps to next line */
+                gap: 0.5rem; /* Space between tags */
+            }
+
+            /* Styles each technology tag */
+            .tech-tags span {
+                background: rgba(
+                    255,
+                    255,
+                    255,
+                    0.2
+                ); /* Semi-transparent background */
+                padding: 0.4rem 1rem; /* Inner spacing */
+                border-radius: 20px; /* Rounded shape */
+                font-size: 0.9rem; /* Small font size */
+                transition: background 0.3s; /* Smooth hover effect */
+                color: var(--light); /* Light text color */
+            }
+
+            /* Hover effect for tech tags */
+            .tech-tags span:hover {
+                background: var(--secondary); /* Soft pink background */
+            }
+
+            /* Styles role details in experience cards */
+            .experience-card .role-details {
+                font-size: 1rem; /* Medium font size */
+                color: var(--accent); /* Lavender color */
+                margin-bottom: 1rem; /* Space below */
+            }
+
+            /* Styles the contact section */
+            .contact {
+                max-width: 900px; /* Limits width */
+                margin: 0 auto; /* Centers section */
+                padding: 4rem 2rem; /* Adds spacing */
+                text-align: center; /* Centers text */
+            }
+
+            /* Styles the contact card */
+            .contact-card {
+                background: var(--card-bg); /* Dark slate background */
+                border-radius: 20px; /* Rounded corners */
+                padding: 3rem; /* Inner spacing */
+                box-shadow: 0 10px 30px rgba(70, 130, 180, 0.2); /* Subtle shadow */
+                animation: slideUp 1s ease-out; /* Slides up on load */
+            }
+
+            /* Styles contact card text */
+            .contact-card p {
+                font-size: 1.2rem; /* Readable font size */
+                margin-bottom: 2rem; /* Space below */
+                color: var(--light); /* Light text color */
+            }
+
+            /* Styles the email button */
+            .email-btn {
+                display: inline-flex; /* Aligns icon and text */
+                align-items: center; /* Vertically centers content */
+                gap: 0.8rem; /* Space between icon and text */
+                background: linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                ); /* Gradient background */
+                color: var(--light); /* Light text color */
+                padding: 1rem 2rem; /* Inner spacing */
+                border-radius: 50px; /* Rounded shape */
+                text-decoration: none; /* Removes underline */
+                font-weight: 600; /* Bold text */
+                transition:
+                    transform 0.3s,
+                    box-shadow 0.3s; /* Smooth hover effects */
+            }
+
+            /* Hover effect for email button */
+            .email-btn:hover {
+                transform: translateY(-5px); /* Moves up slightly */
+                box-shadow: 0 8px 20px rgba(70, 130, 180, 0.5); /* Adds shadow */
+            }
+
+            /* Styles social media links */
+            .social-links {
+                display: flex; /* Aligns buttons horizontally */
+                justify-content: center; /* Centers buttons */
+                gap: 1.5rem; /* Space between buttons */
+                margin-top: 2rem; /* Space above */
+            }
+
+            /* Styles each social media button */
+            .social-btn {
+                width: 50px; /* Fixed size */
+                height: 50px;
+                border-radius: 50%; /* Circular shape */
+                background: var(--primary); /* Steel blue background */
+                color: var(--light); /* Light icon color */
+                display: flex; /* Centers icon */
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem; /* Icon size */
+                transition:
+                    transform 0.3s,
+                    background 0.3s; /* Smooth hover effects */
+            }
+
+            /* Hover effect for social buttons */
+            .social-btn:hover {
+                background: var(--secondary); /* Soft pink background */
+                transform: scale(1.2) rotate(5deg); /* Enlarges and rotates */
+            }
+
+            /* Styles the footer */
+            footer {
+                text-align: center; /* Centers text */
+                padding: 2rem; /* Adds spacing */
+                color: var(--light); /* Light text color */
+                font-size: 1rem; /* Medium font size */
+                background: var(--dark); /* Dark background */
+            }
+
+            /* Animation for fading in elements */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0; /* Starts invisible */
+                }
+                to {
+                    opacity: 1; /* Becomes visible */
+                }
+            }
+
+            /* Animation for sliding up elements */
+            @keyframes slideUp {
+                from {
+                    transform: translateY(50px); /* Starts below */
+                    opacity: 0; /* Starts invisible */
+                }
+                to {
+                    transform: translateY(0); /* Moves to position */
+                    opacity: 1; /* Becomes visible */
+                }
+            }
+
+            /* Responsive design for smaller screens */
+            @media (max-width: 768px) {
+                .name {
+                    font-size: 2.5rem; /* Smaller font size */
+                }
+                .title {
+                    font-size: 1.2rem; /* Smaller font size */
+                }
+                .project-grid,
+                .experience-grid {
+                    grid-template-columns: 1fr; /* Single column */
+                }
+                .navbar {
+                    flex-direction: column; /* Stacks links vertically */
+                    gap: 1rem; /* Space between links */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Particle background container -->
+        <div id="particles-js"></div>
+
+        <!-- Navigation bar with links to sections -->
+        <nav class="navbar">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#hackathon">Hackathons</a>
+            <a href="#technical">Technical Projects</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#volunteer">Volunteer</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Header with name and title -->
+        <header class="header" id="about">
+            <h1 class="name">Krisha Bhalala</h1>
+            <p class="title">
+                Computer Science Honours Student | Innovator in Tech & Social
+                Impact
+            </p>
+        </header>
+
+        <!-- Main content area -->
+        <main>
+            <!-- About section with bio and skills -->
+            <section class="about">
+                <p class="bio">
+                    I'm a third-year Computer Science Honours student at the
+                    University of Manitoba, with a minor in Statistics. I'm
+                    passionate about using technology to make a positive
+                    difference in the world. Whether it's building AI tools to
+                    support healthcare, creating interactive visualizations of
+                    space data, or helping make tech spaces more inclusive, I
+                    love working on projects that combine innovation with
+                    real-world impact. <br /><br />
+                    <strong>Skills & Tools:</strong> I specialize in Python,
+                    JavaScript, Java, C/C++, SQL, React, Vue.js, TensorFlow, and
+                    more, transforming ideas into scalable, inclusive
+                    solutions.<br /><br />
+                    My drive comes from <em>curiosity</em> to push tech
+                    boundaries, <em>collaboration</em> to build strong teams,
+                    and a commitment to <em>inclusivity</em> to empower
+                    underrepresented groups in STEM.<br /><br />
+                </p>
+                <div class="skills">
+                    <span class="skill">Python</span>
+                    <span class="skill">JavaScript/TypeScript</span>
+                    <span class="skill">Java</span>
+                    <span class="skill">C/C++</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">HTML5/CSS3</span>
+                    <span class="skill">React</span>
+                    <span class="skill">Vue.js</span>
+                    <span class="skill">Tailwind CSS</span>
+                    <span class="skill">Three.js</span>
+                    <span class="skill">Node.js</span>
+                    <span class="skill">Express</span>
+                    <span class="skill">Flask</span>
+                    <span class="skill">TensorFlow</span>
+                    <span class="skill">R Markdown</span>
+                    <span class="skill">Pandas</span>
+                    <span class="skill">NumPy</span>
+                    <span class="skill">Matplotlib</span>
+                    <span class="skill">Logistic Regression</span>
+                    <span class="skill">Jupyter Notebook</span>
+                    <span class="skill">Git</span>
+                    <span class="skill">VS Code</span>
+                    <span class="skill">Linux/Unix</span>
+                    <span class="skill">Maven</span>
+                    <span class="skill">Figma</span>
+                    <span class="skill">Power BI</span>
+                </div>
+            </section>
+
+            <!-- Education section -->
+            <section class="section" id="education">
+                <h2 class="section-title">Education</h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <h3>
+                            B.C.Sc. (Honours), Computer Science, Minor in
+                            Statistics
+                        </h3>
+                        <div class="role-details">
+                            University of Manitoba, Winnipeg, MB | Sept 2022 –
+                            Sept 2026
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hackathon section with achievements -->
+            <section class="section" id="hackathon">
+                <h2 class="section-title">Competitions & Hackathons</h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <h3>HashTag NASA: 3D Solar Flare Model</h3>
+                        <div class="role-details">
+                            NASA Space Apps 2024 Challenge | 2024
+                        </div>
+                        <p>
+                            Led a 48-hour hackathon to create a 3D solar flare
+                            visualization using JavaScript, Three.js, and NASA
+                            APIs. Built an immersive, accessible platform with
+                            audio elements to inspire youth in space
+                            exploration.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>
+                            Revive Winnipeg: AI-Driven Property Repair Platform
+                        </h3>
+                        <div class="role-details">
+                            Sprint2Innovate 2025 - Business Pitch Competition |
+                            2025
+                        </div>
+                        <p>
+                            Developed an AI-driven platform using Python and
+                            machine learning to connect property owners with
+                            repair teams, addressing Winnipeg’s vacant property
+                            issue. Won “Top Innovator Award” for urban policy
+                            impact.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Cluster: Student Isolation Reduction Platform</h3>
+                        <div class="role-details">
+                            Sprint2Innovate 2024 - Business Pitch Competition |
+                            2024
+                        </div>
+                        <p>
+                            Engineered a React-based platform to reduce student
+                            isolation, securing 2nd place ($2500) and top
+                            innovation prize ($750). Boosted engagement by 20%
+                            through data-driven surveys.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Capture The Flag 2025</h3>
+                        <div class="role-details">
+                            Computer Science Student Association | 2025
+                        </div>
+                        <p>
+                            Solved complex cybersecurity challenges, including
+                            encryption and SQL exploits, in a 3-person team,
+                            surpassing 20+ competitors. Enhanced skills in
+                            secure coding for resilient systems.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical section with projects -->
+            <section class="section" id="technical">
+                <h2 class="section-title">Technical Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Heart Disease Prediction</h3>
+                            <p>
+                                Developed a machine learning model using
+                                Logistic Regression in Python to predict heart
+                                disease risk based on health features like age,
+                                cholesterol, and blood pressure. Achieved high
+                                accuracy with data preprocessing and feature
+                                analysis, enabling early detection for
+                                healthcare applications.
+                            </p>
+                            <div class="tech-tags">
+                                <span>Python</span>
+                                <span>Scikit-learn</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                                <span>Jupyter Notebook</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Breast Cancer Detection</h3>
+                            <p>
+                                Utilized the Wisconsin Diagnostic Breast Cancer
+                                dataset to classify tumors as benign or
+                                malignant using a neural network in R. Compared
+                                with a Random Forest classifier (500 trees),
+                                which outperformed with higher accuracy,
+                                supporting reliable early detection in
+                                healthcare.
+                            </p>
+                            <div class="tech-tags">
+                                <span>R</span>
+                                <span>neuralnet</span>
+                                <span>randomForest</span>
+                                <span>caret</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Spam Mail Prediction</h3>
+                            <p>
+                                Developed a 94% accurate spam email filter with
+                                Python, reducing inbox clutter. Optimized text
+                                analysis for an 8% performance boost, ensuring
+                                seamless email platform integration.
+                            </p>
+                            <div class="tech-tags">
+                                <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Console Greed Game</h3>
+                            <p>
+                                Created a Java-based number-collecting game
+                                using Maven, where players move based on
+                                adjacent tiles. Designed a flexible, modular
+                                structure for easy adaptation to other
+                                text-based games.
+                            </p>
+                            <div class="tech-tags">
+                                <span>Java</span>
+                                <span>Maven</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Ultimate Potato Clicker</h3>
+                            <p>
+                                Built an engaging clicker game with JavaScript,
+                                HTML, and CSS, featuring upgrades and sound
+                                effects. Added golden potato events and Konami
+                                code for 30% higher interactivity.
+                            </p>
+                            <div class="tech-tags">
+                                <span>JavaScript</span>
+                                <span>HTML</span>
+                                <span>CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>WiCS Website Enhancement</h3>
+                            <p>
+                                Enhanced the Women in Computer Science website
+                                with Vue.js, Figma, and HTML/CSS, creating
+                                responsive, accessible components for 200+
+                                members. Integrated RESTful APIs for dynamic
+                                content.
+                            </p>
+                            <div class="tech-tags">
+                                <span>Vue.js</span>
+                                <span>Figma</span>
+                                <span>HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Active Minds Website</h3>
+                            <p>
+                                Developed a mental health resource website with
+                                HTML, CSS, and JavaScript, driving a 20%
+                                increase in visits through accessible,
+                                interactive design for diverse student
+                                audiences.
+                            </p>
+                            <div class="tech-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership section with roles -->
+            <section class="section" id="leadership">
+                <h2 class="section-title">
+                    Leadership & Professional Experience
+                </h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <h3>Undergraduate Research Award Recipient</h3>
+                        <div class="role-details">
+                            University of Manitoba, Faculty of Science,
+                            Winnipeg, MB | May 2025 – Aug 2025
+                        </div>
+                        <p>
+                            Developing a smartphone app for clinical trial data
+                            collection with heart rate sensors, using machine
+                            learning for precise insights. Designed inclusive
+                            features to enhance study accessibility.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Shift Manager</h3>
+                        <div class="role-details">
+                            Cleo, Winnipeg, MB | Jan 2023 – Present
+                        </div>
+                        <p>
+                            Led a team of 10 to boost store productivity by 25%
+                            through mentoring and optimized scheduling. Designed
+                            an inventory system reducing errors by 30% and
+                            improved customer satisfaction by 15%.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Vice President (Finance)</h3>
+                        <div class="role-details">
+                            Women’s Centre, UMSU, Winnipeg, MB | Jul 2024 –
+                            Present
+                        </div>
+                        <p>
+                            Raised 30% more funds through innovative events,
+                            supporting women’s programs. Managed budgets to
+                            maximize impact and led initiatives for an inclusive
+                            campus community.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Outreach Coding Instructor</h3>
+                        <div class="role-details">
+                            Women in Computer Science, Winnipeg, MB | Aug 2023 –
+                            Aug 2024
+                        </div>
+                        <p>
+                            Led Python and JavaScript workshops for high
+                            schoolers, creating beginner-friendly lessons to
+                            inspire tech careers. Fostered a supportive
+                            environment for women in tech.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Volunteer section with contributions -->
+            <section class="section" id="volunteer">
+                <h2 class="section-title">Volunteer Experience</h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <h3>Web Developer</h3>
+                        <div class="role-details">
+                            Active Minds UManitoba, Winnipeg, MB | Mar 2024 –
+                            Mar 2025
+                        </div>
+                        <p>
+                            Built a user-friendly mental health resource website
+                            with HTML, CSS, and JavaScript, increasing site
+                            visits by 20% through accessible, engaging design.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Web Developer</h3>
+                        <div class="role-details">
+                            Women in Computer Science, Winnipeg, MB | Sep 2024 –
+                            Present
+                        </div>
+                        <p>
+                            Enhanced the WiCS website with Vue.js and Figma,
+                            creating responsive, accessible components for 200+
+                            members. Integrated RESTful APIs for dynamic event
+                            displays.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Tutor and Mentor</h3>
+                        <div class="role-details">
+                            Science Students’ Association, Winnipeg, MB | Sep
+                            2024 – Present
+                        </div>
+                        <p>
+                            Tutored math and statistics, leading study groups to
+                            improve grades and confidence. Provided personalized
+                            mentoring to support STEM career goals.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Photo Booth Coordinator</h3>
+                        <div class="role-details">
+                            University of Manitoba Students’ Union, Winnipeg, MB
+                            | Sep 2023 – Jan 2024
+                        </div>
+                        <p>
+                            Led photo booth operations at UMSU’s Halloween
+                            party, creating fun, inclusive experiences for
+                            hundreds. Coordinated logistics for smooth,
+                            memorable events.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Embedded Systems Team Member</h3>
+                        <div class="role-details">
+                            UMSATS, Winnipeg, MB | May 2023 – Apr 2024
+                        </div>
+                        <p>
+                            Designed embedded systems for CubeSat projects,
+                            programming microcontrollers and developing flight
+                            software for satellite missions.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Outreach Volunteer</h3>
+                        <div class="role-details">
+                            Let’s Talk Science, Winnipeg, MB | Aug 2022 – Aug
+                            2024
+                        </div>
+                        <p>
+                            Guided 50+ students in STEM workshops, designing
+                            inclusive, hands-on activities to inspire computer
+                            science interest among diverse learners.
+                        </p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Student Volunteer</h3>
+                        <div class="role-details">
+                            Science Rendezvous, Winnipeg, MB | Mar 2023 – May
+                            2023
+                        </div>
+                        <p>
+                            Volunteered at Science Rendezvous, facilitating
+                            various science activities for primary school
+                            children and helped set up and guided students
+                            through interactive science exhibits.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact section with email and social links -->
+            <section class="contact" id="contact">
+                <div class="contact-card">
+                    <h2 class="section-title">Let's Collaborate</h2>
+                    <p>
+                        Excited about a project or want to discuss tech and
+                        innovation? I’m eager to create impactful solutions and
+                        share ideas—reach out, and let’s build something
+                        extraordinary!
+                    </p>
+                    <a
+                        href="mailto:krishasbhalala@outlook.com"
+                        class="email-btn"
+                    >
+                        <i class="fas fa-envelope"></i>
+                        krishasbhalala@outlook.com
+                    </a>
+                    <div class="social-links">
+                        <a
+                            href="https://github.com/Krisha-Bhalala"
+                            class="social-btn"
+                            target="_blank"
+                        >
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a
+                            href="https://linkedin.com/in/krisha-bhalala"
+                            class="social-btn"
+                            target="_blank"
+                        >
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer with credits -->
+        <footer>
+            <p>Crafted with Passion by Krisha Bhalala | 2025</p>
+        </footer>
+
+        <!-- JavaScript for interactive features -->
+        <script>
+            // Sets up the particle background animation
+            particlesJS("particles-js", {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: { enable: true, value_area: 800 },
+                    },
+                    color: { value: ["#4682b4", "#ff9999", "#e6e6fa"] }, // Uses portfolio colors
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#4682b4",
+                        opacity: 0.4,
+                        width: 1,
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                    },
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" }, // Pushes particles away on hover
+                        onclick: { enable: true, mode: "push" }, // Adds particles on click
+                        resize: true,
+                    },
+                    modes: {
+                        repulse: { distance: 100, duration: 0.4 },
+                        push: { particles_nb: 4 },
+                    },
+                },
+                retina_detect: true, // Optimizes for high-resolution screens
+            });
+
+            // Enables smooth scrolling for navigation links
+            document.querySelectorAll(".navbar a").forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevents default link behavior
+                    const targetId = this.getAttribute("href").substring(1); // Gets section ID
+                    const targetElement = document.getElementById(targetId); // Finds section
+                    targetElement.scrollIntoView({ behavior: "smooth" }); // Scrolls smoothly
+                });
+            });
+
+            // Easter egg: changes background when "krisha" is typed
+            let keysPressed = [];
+            document.addEventListener("keydown", (e) => {
+                keysPressed.push(e.key.toLowerCase()); // Tracks typed keys
+                if (keysPressed.length > 6) keysPressed.shift(); // Keeps last 6 keys
+                if (keysPressed.join("") === "krisha") {
+                    // Checks for "krisha"
+                    document.body.style.transition = "background 1s"; // Smooth transition
+                    document.body.style.background =
+                        "linear-gradient(45deg, #ff9999, #e6e6fa)"; // Temporary gradient
+                    setTimeout(() => {
+                        document.body.style.background = "var(--dark)"; // Reverts to dark
+                    }, 1000); // After 1 second
+                }
+            });
+        </script>
+    </body>
+</html>
